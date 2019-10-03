@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/eidemo" name="SampleRest" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="GET" url-mapping="/hello">
+        <inSequence>
+            <log>
+                <property name="message" value="Request hit to the endpoint"/>
+            </log>
+            <payloadFactory media-type="json">
+                <format>
+        {"message":"Hello"}
+        
+        </format>
+                <args/>
+            </payloadFactory>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+</api>
