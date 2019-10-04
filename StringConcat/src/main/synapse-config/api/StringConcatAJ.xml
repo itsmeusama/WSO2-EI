@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/stringconcataj" name="StringConcat" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="POST" uri-template="/concat?title={title_val}">
+        <inSequence>
+            <property expression="$url:title" name="title" scope="default" type="STRING"/>
+            <property expression="json-eval($.first_name)" name="first_name" scope="default" type="STRING"/>
+            <property expression="json-eval($.last_name)" name="last_name" scope="default" type="STRING"/>
+            <payloadFactory media-type="json">
+                <format>
+                     {"$1":"$2 $3"}
+                 </format>
+                <args>
+                    <arg evaluator="xml" expression="get-property('title')"/>
+                    <arg evaluator="xml" expression="get-property('first_name')"/>
+                    <arg evaluator="xml" expression="get-property('last_name')"/>
+                </args>
+            </payloadFactory>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+</api>

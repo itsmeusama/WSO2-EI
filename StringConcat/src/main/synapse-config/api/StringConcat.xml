@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/stringconcat" name="StringConcat" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="GET" uri-template="/concat?name={name_val}">
+        <inSequence>
+            <property name="title" scope="default" type="STRING" value="Name"/>
+            <property expression="$url:name" name="value" scope="default" type="STRING"/>
+            <payloadFactory media-type="json">
+                <format>
+               	{"$1":"$2"}
+               </format>
+                <args>
+                    <arg evaluator="xml" expression="get-property('title')"/>
+                    <arg evaluator="xml" expression="get-property('value')"/>
+                </args>
+            </payloadFactory>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+</api>

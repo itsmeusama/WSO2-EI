@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><artifacts>
+    <artifact name="StringConcat" groupId="com.usama.wso2ei.StringConcat.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/StringConcat.xml</file>
+    </artifact>
+    <artifact name="StringConcatAJ" groupId="com.usama.wso2ei.StringConcat.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/StringConcatAJ.xml</file>
+    </artifact>
+    <artifact name="StringConcat1" groupId="com.usama.wso2ei.StringConcat.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/StringConcat1.xml</file>
+    </artifact>
+</artifacts>
