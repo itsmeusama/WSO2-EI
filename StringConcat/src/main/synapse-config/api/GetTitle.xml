@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/gettitle1" name="GetTitle" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="GET" uri-template="/user1">
+        <inSequence>
+            <call>
+                <endpoint>
+                    <http method="get" uri-template="http://jsonplaceholder.typicode.com/posts"/>
+                </endpoint>
+            </call>
+            <property expression="json-eval($.[?(@.id&lt;10)].title)" name="user" scope="default" type="STRING"/>
+            <payloadFactory media-type="json">
+                <format>
+            	{$1}
+            	</format>
+                <args>
+                    <arg evaluator="xml" expression="get-property('user')"/>
+                </args>
+            </payloadFactory>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+</api>
