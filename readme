@@ -1,1 +1,43 @@
 http://localhost:8290/eidemo2/hello1
+
+http://localhost:8290/gettitle1/user1
+
+
+
+<!-- in postman
+
+ 
+
+Request type = POST
+Url = localhost:8290/e5/concatnation?title=hello
+
+ 
+
+headers
+----------
+Content_Type = application/json
+
+ 
+
+body->row
+-------------
+{
+    "first_name":"wso2",
+    "last_name":"virtusa"
+}
+
+ 
+
+ 
+
+output in Params->Body
+-------------------------
+{
+    "hello": "wso2 virtusa"
+}
+
+ 
+
+ 
+
+ -->
