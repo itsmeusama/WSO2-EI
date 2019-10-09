@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/itroveruser" name="IterateOverUser" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="GET" uri-template="/test">
+        <inSequence>
+            <property name="uri.var.host" scope="default" type="STRING" value="http://demo2314145.mockable.io/"/>
+            <call>
+                <endpoint>
+                    <http method="get" uri-template="{uri.var.host}"/>
+                </endpoint>
+            </call>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+</api>

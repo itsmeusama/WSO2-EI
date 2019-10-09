@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><artifacts>
+    <artifact name="IterateOverUser" groupId="com.example.Day8.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/IterateOverUser.xml</file>
+    </artifact>
+    <artifact name="IterateOverUser1" groupId="com.example.Day8.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/IterateOverUser1.xml</file>
+    </artifact>
+</artifacts>
