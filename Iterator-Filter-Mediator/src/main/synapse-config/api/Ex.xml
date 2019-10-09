@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/ex" name="Ex" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="GET" uri-template="/test1">
+        <inSequence>
+            <call>
+                <endpoint>
+                    <http method="get" uri-template="http://jsonplaceholder.typicode.com/posts"/>
+                </endpoint>
+            </call>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+</api>

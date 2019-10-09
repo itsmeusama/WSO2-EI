@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/employee-ex" name="Employee-Ex" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="GET" uri-template="/employee?type={emp_type}">
+        <inSequence>
+            <property expression="$url:type" name="emp_type" scope="default" type="STRING"/>
+            <call>
+                <endpoint>
+                    <http method="get" uri-template="http://jsonplaceholder.typicode.com/posts"/>
+                </endpoint>
+            </call>
+            <property expression="json-eval($.[?(@.id==1)])" name="emp_detail" scope="default" type="STRING"/>
+            <payloadFactory media-type="json">
+                <format>
+        		{"type":"$1",
+        		"employee detail":"$2"}
+        	</format>
+                <args>
+                    <arg evaluator="xml" expression="get-property('emp_type')"/>
+                    <arg evaluator="xml" expression="get-property('emp_detail')"/>
+                </args>
+            </payloadFactory>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+</api>

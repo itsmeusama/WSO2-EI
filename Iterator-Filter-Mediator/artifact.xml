@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><artifacts>
+    <artifact name="Ex" groupId="com.example.Iterator-Filter-Mediator.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/Ex.xml</file>
+    </artifact>
+    <artifact name="Employee-ex" groupId="com.example.Iterator-Filter-Mediator.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/Employee-ex.xml</file>
+    </artifact>
+    <artifact name="FilterMed" groupId="com.example.Iterator-Filter-Mediator.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/FilterMed.xml</file>
+    </artifact>
+    <artifact name="IteratorMed" groupId="com.example.Iterator-Filter-Mediator.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/IteratorMed.xml</file>
+    </artifact>
+</artifacts>

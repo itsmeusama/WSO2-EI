@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/iteratormed" name="IteratorMed" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="GET" uri-template="/test1">
+        <inSequence>
+            <call>
+                <endpoint>
+                    <http method="get" uri-template="http://jsonplaceholder.typicode.com/posts"/>
+                </endpoint>
+            </call>
+            <iterate attachPath="json-eval($)" expression="json-eval($)" id="userIterator" preservePayload="true">
+                <target>
+                    <sequence>
+                        <log>
+                            <property name="iterator" value="iterator"/>
+                        </log>
+                    </sequence>
+                </target>
+            </iterate>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+</api>
