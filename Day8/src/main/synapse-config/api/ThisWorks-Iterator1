@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/itruser" name="IterateUser" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="GET" uri-template="/test">
+        <inSequence>
+            <property name="uri.var.array.host" scope="default" type="STRING" value="http://demo2898832.mockable.io/"/>
+            <property name="uri.var.host" scope="default" type="STRING" value="http://jsonplaceholder.typicode.com/posts"/>
+            <call>
+                <endpoint>
+                    <http method="get" uri-template="{uri.var.array.host}"/>
+                </endpoint>
+            </call>
+            <iterate attachPath="json-eval($)" expression="json-eval($)" id="iterate-over-users" preservePayload="true">
+                <target>
+                    <sequence>
+                        <property expression="json-eval($)" name="uri.var.id" scope="default" type="STRING"/>
+                        <send>
+                        	<endpoint>
+                        		<http uri-template="{uri.var.host}/{uri.var.id}" method="GET"/>
+                        	</endpoint>
+                        </send>
+                    </sequence>
+                </target>
+            </iterate>
+        </inSequence>
+        <outSequence>
+            <aggregate id="iterate-over-users">
+                <completeCondition>
+                    <messageCount max="-1" min="-1"/>
+                </completeCondition>
+                <onComplete expression="json-eval($)">
+                    <log level="full"/>
+                    <respond/>
+                </onComplete>
+            </aggregate>
+        </outSequence>
+        <faultSequence/>
+    </resource>
+</api>
